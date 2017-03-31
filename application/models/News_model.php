@@ -10,20 +10,20 @@ class News_model extends CI_Model {
 	{
 		if ($slug === FALSE)
 		{
-				$query = $this->db->get('news');
-				return $query->result_array();
+			$query = $this->db->get('news');
+			return $query->result_array();
 		}
 
 		$query = $this->db->get_where('news', array('slug' => $slug));
 		return $query->row_array();
 	}
 	
-        public function insert_entry()
-        {
-                $this->title    = $_POST['title']; 
-                $this->slug  = $_POST['slug'];
-				$this->text  = $_POST['text'];
-                $this->db->insert('news', $this);
-        }
+	public function insert_entry()
+	{
+		$this->title    = $_POST['title']; 
+		$this->slug  = $_POST['slug'];
+		$this->text  = $_POST['text'];
+		$this->db->insert('news', $this);
+	}
 	
 }
